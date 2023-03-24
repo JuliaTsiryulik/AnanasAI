@@ -42,62 +42,61 @@ from ananas_ai_lib.ananas_framework import *
 import ananas_ai_lib.ananas_framework as ananas
 ```
 
-Для 
-**add_layers(layers, loss_function, optimizer=SGD(), learning_rate=0.02, 
-           epochs_count=20, classification = True, regression = False)**
+#### Параметры:
+
+***add_layers(layers, loss_function, optimizer=SGD(), learning_rate=0.02, 
+           epochs_count=20, classification = True, regression = False)***
+           
 Происходит подготовка модели.
+<br/><br/>**layers:**
+    <br/>&emsp;Слои нейронной сети, необходимо указывать в качестве списка. 
+    <br/>&emsp;Сумматор:
+        <br/>&emsp;&emsp;**Linear(n_in, n_out):**
+            <br/>&emsp;&emsp;&emsp;**n_in: int**
+                <br/>&emsp;&emsp;&emsp;&emsp;Количество входов.
+            <br/>&emsp;&emsp;&emsp;**n_out: int**
+                <br/>&emsp;&emsp;&emsp;&emsp;Количество выходов.
+    <br/>&emsp;Доступны следующие функции активации:
+        <br/>&emsp;&emsp;**ReLU(),
+        <br/>&emsp;&emsp;Tanh(),
+        <br/>&emsp;&emsp;Sigmoid(),
+        <br/>&emsp;&emsp;Softmax().**       
+<br/>**loss_function:**
+    <br/>&emsp;Функция потерь.
+    <br/>&emsp;Доступны следующие функции потерь:
+        <br/>&emsp;&emsp;**BinaryCrossEntropy(),
+        <br/>&emsp;&emsp;CrossEntropyLoss(),
+        <br/>&emsp;&emsp;MeanSquaredError().**
+<br/><br/>**optimizer: default=SGD()**
+    <br/>&emsp;Алгоритм оптимизации.
+    <br/>&emsp;Доступны следующие алгоритмы оптимизации:
+        <br/>&emsp;&emsp;**SGD(): learning_rate=0.02,
+        <br/>&emsp;&emsp;MomentumSGD(): learning_rate=0.2,
+        <br/>&emsp;&emsp;Adam(): learning_rate=0.99.**
+<br/><br/>**learning_rate: float, default=0.02**
+    <br/>&emsp;Скорость обучения.  
+<br/>**epochs_count: int, default=20**
+    <br/>&emsp;Количество эпох.   
+<br/>**classification: bool, default=True**
+    <br/>&emsp;Решение задачи классификации.    
+<br/>**regression: bool, default=False**
+    <br/>&emsp;Решение задачи регрессии.
 
-layers:
-    Слои нейронной сети, необходимо указывать в качестве списка. 
-    Сумматор:
-        Linear(n_in, n_out):
-            n_in: int
-                Количество входов.
-            n_out: int
-                Количество выходов.
-    Доступны следующие функции активации:
-        ReLU(),
-        Tanh(),
-        Sigmoid(),
-        Softmax().
-loss_function:
-    Функция потерь.
-    Доступны следующие функции потерь:
-        BinaryCrossEntropy(),
-        CrossEntropyLoss(),
-        MeanSquaredError().
+<br/>***train(X_train, Y_train)***
 
-optimizer: default=SGD()
-    Алгоритм оптимизации.
-    Доступны следующие алгоритмы оптимизации:
-        SGD(): learning_rate=0.02,
-        MomentumSGD(): learning_rate=0.2,
-        Adam(): learning_rate=0.99.
-
-learning_rate: float, default=0.02
-    Скорость обучения.
-epochs_count: int, default=20
-    Количество эпох.
-classification: bool, default=True
-    Решение задачи классификации.
-regression: bool, default=False
-    Решение задачи регрессии.
-
-**train(X_train, Y_train)**
 Тренирует модель.
+<br/><br/>**X_train:**
+    <br/>&emsp;Массив признаков обучающей выборки.
+<br/>**Y_train:**
+    <br/>&emsp;Массив меток обучающей выборки.
 
-X_train:
-    Массив признаков обучающей выборки.
-Y_train:
-    Массив меток обучающей выборки.
+<br/>***predict(X_test, Y_test)***
 
-**predict(X_test, Y_test)**
 Возвращает предсказанные значения меток и точность (классификация) или значение функции потерь (регрессия).
-
-X_test:
-    Массив признаков тестовой выборки.
-Y_test:
-    Массив меток тестовой выборки.
+<br/><br/>**X_test:**
+    <br/>&emsp;Массив признаков тестовой выборки.
+<br/>**Y_test:**
+    <br/>&emsp;Массив меток тестовой выборки.
 
 
 *Пример (бинарная классификация):*
