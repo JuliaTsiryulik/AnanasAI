@@ -112,4 +112,4 @@ model.train(X_train, Y_train)
 pred_vals, acc = model.predict(X_test, Y_test)
 ```
 
-Больше примеров можно увидеть в файле "[LR-1. FrameWork.ipynb]"(https://github.com/JuliaTsiryulik/AnanasAI/blob/main/LR_1_FrameWork.ipynb)
+Больше примеров можно увидеть в файле "[LR-1. FrameWork.ipynb](https://github.com/JuliaTsiryulik/AnanasAI/blob/main/LR_1_FrameWork.ipynb)"
